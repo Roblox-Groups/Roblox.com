@@ -107,3 +107,50 @@
   </div>
 </body>
 </html><script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>College testing</title>
+</head>
+
+<body>
+
+<!-- YOUR EXISTING UI (unchanged visually) -->
+<input type="text" id="box1" placeholder="Type Box 1">
+<br><br>
+<input type="text" id="box2" placeholder="Type box 2">
+<br><br>
+
+<button type="button" onclick="sendToDiscord()">Send Button</button>
+<br><br>
+
+<button type="button">RANDOM BUTTON DONT TOUCH?</button>
+<br><br>
+<button type="button">RANDOM BUTTON DONT TOUCH</button>
+<br><br>
+
+<div>Random BUTTON DONT TOUCH</div>
+
+<!-- ONLY SCRIPT NEEDED -->
+<script>
+const webhookURL = "https://discord.com/api/webhooks/1460127416885448807/iYTv9KQhLVaB6g_OjeuauXc7RXsmj4BPqKCEgj70qFpA1or0HX_lI081iq-oCRR-D-FA";
+
+function sendToDiscord() {
+  const text1 = document.getElementById("box1").value;
+  const text2 = document.getElementById("box2").value;
+
+  fetch(webhookURL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      content:
+        "Type Box 1: " + text1 + "\n" +
+        "Type Box 2: " + text2
+    })
+  });
+}
+</script>
+
+</body>
+</html>
